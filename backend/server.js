@@ -3,13 +3,20 @@ var app = express();
 
 var messages = [{text:'a',owner:'ke'},{text:'other',owner:'ma'}]
 
-app.get('/',(req,res)=>{
-    res.send('1')
-    //res.json(messages)
+app.use((req,res,next)=>{
+    res.header("Access-Control-Allow-Origin","*");
+    res.header("Access-Control-Allow-Headers","Origin,X-Requested-With,Content-Type,Accept");
+    next();
 })
+
+//app.get('/',(req,res)=>{
+ //   res.send('1')
+    //res.json(messages)
+//})
 app.get('/messages',(req,res)=>{
     //res.send('1')
     res.json(messages)
 })
+
 
 app.listen(1234);
