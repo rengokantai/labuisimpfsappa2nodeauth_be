@@ -10,20 +10,24 @@ app.use((req,res,next)=>{
     next();
 })
 
+var api = express.Router();
+
 //app.get('/',(req,res)=>{
  //   res.send('1')
     //res.json(messages)
 //})
-app.get('/messages',(req,res)=>{
+api.get('/messages',(req,res)=>{
     //res.send('1')
     res.json(messages)
 })
 
-app.post('/message',(req,res)=>{
+api.post('/message',(req,res)=>{
     //res.send('1')
     //console.log(req.body);
     messages.push(req.body);
     res.sendStatus(200);
 })
 
-app.listen(1234);
+app.use('/api',api);
+
+app.listen(60000);
