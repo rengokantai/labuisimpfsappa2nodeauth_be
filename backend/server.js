@@ -25,7 +25,7 @@ api.post('/messages',(req,res)=>{
     //res.send('1')
     //console.log(req.body);
     messages.push(req.body);
-    res.sendStatus(200);
+    res.json(req.body);
 })
 
 app.use('/api',api);
